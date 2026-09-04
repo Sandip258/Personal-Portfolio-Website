@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": null,
+  "source": "public-youtube-data-api",
+  "refreshStatus": "placeholder",
+  "channels": [
+    {
+      "key": "campus-chronicles",
+      "displayName": "Campus Chronicles",
+      "channelId": null,
+      "publicUrl": null,
+      "relationship": "Owned channel · full case study",
+      "status": "config-required",
+      "statusMessage": "Public channel ID awaiting confirmation",
+      "lastSuccessfulSyncAt": null,
+      "statistics": { "subscribers": null, "totalViews": null, "videoCount": null, "hiddenSubscriberCount": false },
+      "latestUploads": [],
+      "cadence": { "uploadsLast7Days": null, "uploadsLast30Days": null, "averagePerWeek": null, "label": "Awaiting first public-data sync" },
+      "trends": { "days7": null, "days30": null }
+    },
+    {
+      "key": "class-10-endgame",
+      "displayName": "Class 10 Endgame",
+      "channelId": null,
+      "publicUrl": null,
+      "relationship": "Selected managed work · public data only",
+      "status": "config-required",
+      "statusMessage": "Display approval and channel ID awaiting confirmation",
+      "lastSuccessfulSyncAt": null,
+      "statistics": { "subscribers": null, "totalViews": null, "videoCount": null, "hiddenSubscriberCount": false },
+      "latestUploads": [],
+      "cadence": { "uploadsLast7Days": null, "uploadsLast30Days": null, "averagePerWeek": null, "label": "Awaiting first public-data sync" },
+      "trends": { "days7": null, "days30": null }
+    },
+    {
+      "key": "icse-9-10",
+      "displayName": "ICSE 9 & 10",
+      "channelId": null,
+      "publicUrl": null,
+      "relationship": "Selected managed work · public data only",
+      "status": "config-required",
+      "statusMessage": "Display approval and channel ID awaiting confirmation",
+      "lastSuccessfulSyncAt": null,
+      "statistics": { "subscribers": null, "totalViews": null, "videoCount": null, "hiddenSubscriberCount": false },
+      "latestUploads": [],
+      "cadence": { "uploadsLast7Days": null, "uploadsLast30Days": null, "averagePerWeek": null, "label": "Awaiting first public-data sync" },
+      "trends": { "days7": null, "days30": null }
+    }
+  ]
+}

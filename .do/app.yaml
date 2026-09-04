@@ -1,0 +1,14 @@
+name: sandip-ghosh-portfolio
+static_sites:
+  - name: portfolio
+    github:
+      repo: Sandip258/Personal-Portfolio-Website
+      branch: main
+      deploy_on_push: true
+    source_dir: /
+    environment_slug: node-js
+    build_command: npm run build
+    output_dir: dist
+    routes:
+      - path: /
+

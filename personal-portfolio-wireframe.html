@@ -1,0 +1,977 @@
+<style>
+  #sandip-portfolio-wireframe {
+    color-scheme: light;
+    --portfolio-bg: #f5f8fc;
+    --portfolio-surface: #ffffff;
+    --portfolio-surface-soft: #edf4fa;
+    --portfolio-ink: #102033;
+    --portfolio-muted: #62758c;
+    --portfolio-rule: #d9e6f1;
+    --portfolio-accent: #0968d9;
+    --portfolio-accent-2: #16a6c6;
+    --portfolio-accent-soft: color-mix(in srgb, var(--portfolio-accent) 14%, transparent);
+    --portfolio-shadow: 0 16px 44px rgba(53, 83, 115, .10);
+    box-sizing: border-box;
+    width: 100%;
+    background:
+      radial-gradient(circle at 82% 8%, color-mix(in srgb, var(--portfolio-accent) 12%, transparent), transparent 20%),
+      radial-gradient(circle at 16% 38%, color-mix(in srgb, var(--portfolio-accent-2) 9%, transparent), transparent 19%),
+      var(--portfolio-bg);
+    color: var(--portfolio-ink);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  #sandip-portfolio-wireframe *,
+  #sandip-portfolio-wireframe *::before,
+  #sandip-portfolio-wireframe *::after { box-sizing: border-box; }
+
+  #sandip-portfolio-wireframe .pf-page {
+    position: relative;
+    isolation: isolate;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 20px 28px 34px;
+  }
+
+  #sandip-portfolio-wireframe .pf-page::before {
+    content: "";
+    position: absolute;
+    inset: 72px -54px auto;
+    z-index: -1;
+    height: 520px;
+    pointer-events: none;
+    opacity: .7;
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--portfolio-accent) 10%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--portfolio-accent) 10%, transparent) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: linear-gradient(to bottom, #000 12%, transparent 93%);
+  }
+
+  #sandip-portfolio-wireframe .pf-nav,
+  #sandip-portfolio-wireframe .pf-section-head,
+  #sandip-portfolio-wireframe .pf-card-top,
+  #sandip-portfolio-wireframe .pf-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+  }
+
+  #sandip-portfolio-wireframe .pf-nav {
+    min-height: 52px;
+    border-bottom: 1px solid var(--portfolio-rule);
+  }
+
+  #sandip-portfolio-wireframe .pf-tech-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-top: 16px;
+    padding: 8px 12px;
+    border: 1px solid color-mix(in srgb, var(--portfolio-accent) 20%, var(--portfolio-rule));
+    border-radius: 11px;
+    background: color-mix(in srgb, var(--portfolio-surface) 78%, transparent);
+    color: var(--portfolio-muted);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 9px;
+    letter-spacing: .055em;
+  }
+
+  #sandip-portfolio-wireframe .pf-tech-bar strong {
+    color: var(--portfolio-accent);
+    font-weight: 500;
+  }
+
+  #sandip-portfolio-wireframe .pf-tech-bar span:first-child::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-right: 7px;
+    border-radius: 999px;
+    background: var(--portfolio-accent-2);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--portfolio-accent-2) 15%, transparent);
+  }
+
+  #sandip-portfolio-wireframe .pf-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -.02em;
+  }
+
+  #sandip-portfolio-wireframe .pf-monogram {
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    color: var(--portfolio-accent);
+    border: 1px solid color-mix(in srgb, var(--portfolio-accent) 62%, var(--portfolio-rule));
+    font-size: 11px;
+    letter-spacing: -.06em;
+  }
+
+  #sandip-portfolio-wireframe .pf-links {
+    display: flex;
+    gap: 18px;
+    color: var(--portfolio-muted);
+    font-size: 11px;
+  }
+
+  #sandip-portfolio-wireframe .pf-nav-cta,
+  #sandip-portfolio-wireframe .pf-button {
+    border: 0;
+    background: var(--portfolio-accent);
+    color: #fff;
+    font: inherit;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 9px 13px;
+    letter-spacing: .01em;
+  }
+
+  #sandip-portfolio-wireframe .pf-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.17fr) minmax(280px, .83fr);
+    gap: 28px;
+    padding: 66px 0 38px;
+    align-items: end;
+  }
+
+  #sandip-portfolio-wireframe .pf-eyebrow,
+  #sandip-portfolio-wireframe .pf-label,
+  #sandip-portfolio-wireframe .pf-kicker {
+    color: var(--portfolio-accent);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+  }
+
+  #sandip-portfolio-wireframe .pf-hero h1 {
+    max-width: 620px;
+    margin: 12px 0 16px;
+    font-size: clamp(36px, 5vw, 62px);
+    line-height: .97;
+    letter-spacing: -.065em;
+    font-weight: 500;
+  }
+
+  #sandip-portfolio-wireframe .pf-hero h1 em {
+    color: var(--portfolio-accent);
+    font-style: normal;
+  }
+
+  #sandip-portfolio-wireframe .pf-hero-copy {
+    max-width: 540px;
+    margin: 0 0 22px;
+    color: var(--portfolio-muted);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  #sandip-portfolio-wireframe .pf-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+  }
+
+  #sandip-portfolio-wireframe .pf-text-link {
+    color: var(--portfolio-ink);
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  #sandip-portfolio-wireframe .pf-hero-proof {
+    min-height: 265px;
+    padding: 20px;
+    background: var(--portfolio-surface);
+    border: 1px solid var(--portfolio-rule);
+    border-radius: 18px;
+    box-shadow: var(--portfolio-shadow);
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--portfolio-accent) 5%, transparent), transparent 43%),
+      var(--portfolio-surface);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  #sandip-portfolio-wireframe .pf-proof-title {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -.02em;
+  }
+
+  #sandip-portfolio-wireframe .pf-line-chart {
+    position: relative;
+    height: 110px;
+    margin-top: 16px;
+    overflow: hidden;
+  }
+
+  #sandip-portfolio-wireframe .pf-line-chart::before,
+  #sandip-portfolio-wireframe .pf-line-chart::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-top: 1px solid var(--portfolio-rule);
+    opacity: .7;
+  }
+
+  #sandip-portfolio-wireframe .pf-line-chart::before { top: 24px; }
+  #sandip-portfolio-wireframe .pf-line-chart::after { top: 71px; }
+
+  #sandip-portfolio-wireframe .pf-line {
+    position: absolute;
+    left: 4px;
+    right: 4px;
+    bottom: 5px;
+    height: 94px;
+    width: calc(100% - 8px);
+  }
+
+  #sandip-portfolio-wireframe .pf-proof-bottom {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 6px;
+  }
+
+  #sandip-portfolio-wireframe .pf-proof-value {
+    font-size: 28px;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -.065em;
+  }
+
+  #sandip-portfolio-wireframe .pf-proof-context {
+    margin-top: 5px;
+    color: var(--portfolio-muted);
+    font-size: 10px;
+  }
+
+  #sandip-portfolio-wireframe .pf-direction {
+    color: var(--portfolio-accent);
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  #sandip-portfolio-wireframe .pf-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--portfolio-rule);
+    border-bottom: 1px solid var(--portfolio-rule);
+  }
+
+  #sandip-portfolio-wireframe .pf-metric {
+    min-height: 106px;
+    padding: 20px 16px 18px 0;
+    border-right: 1px solid var(--portfolio-rule);
+  }
+
+  #sandip-portfolio-wireframe .pf-metric + .pf-metric { padding-left: 16px; }
+  #sandip-portfolio-wireframe .pf-metric:last-child { border-right: 0; }
+
+  #sandip-portfolio-wireframe .pf-metric-value {
+    display: block;
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 1;
+    letter-spacing: -.06em;
+    font-weight: 500;
+  }
+
+  #sandip-portfolio-wireframe .pf-metric-label {
+    display: block;
+    margin-top: 9px;
+    color: var(--portfolio-muted);
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  #sandip-portfolio-wireframe .pf-section {
+    padding: 64px 0 0;
+  }
+
+  #sandip-portfolio-wireframe .pf-section-head {
+    align-items: end;
+    margin-bottom: 22px;
+  }
+
+  #sandip-portfolio-wireframe .pf-section-head h2 {
+    margin: 7px 0 0;
+    font-size: 28px;
+    letter-spacing: -.05em;
+    line-height: 1.05;
+  }
+
+  #sandip-portfolio-wireframe .pf-section-note {
+    max-width: 236px;
+    color: var(--portfolio-muted);
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  #sandip-portfolio-wireframe .pf-work-grid {
+    display: grid;
+    grid-template-columns: 1.22fr .78fr;
+    gap: 14px;
+  }
+
+  #sandip-portfolio-wireframe .pf-work-card,
+  #sandip-portfolio-wireframe .pf-process,
+  #sandip-portfolio-wireframe .pf-channel-desk,
+  #sandip-portfolio-wireframe .pf-contact {
+    background: var(--portfolio-surface);
+    border: 1px solid var(--portfolio-rule);
+  }
+
+  #sandip-portfolio-wireframe .pf-work-card {
+    min-height: 276px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  #sandip-portfolio-wireframe .pf-work-card--endgame {
+    background:
+      linear-gradient(120deg, var(--portfolio-accent-soft), transparent 52%),
+      var(--portfolio-surface);
+  }
+
+  #sandip-portfolio-wireframe .pf-work-card--sprint {
+    grid-column: 1 / -1;
+    min-height: 178px;
+    display: grid;
+    grid-template-columns: 1fr .82fr;
+    gap: 20px;
+  }
+
+  #sandip-portfolio-wireframe .pf-card-top { align-items: flex-start; }
+
+  #sandip-portfolio-wireframe .pf-card-title {
+    margin: 8px 0 6px;
+    font-size: 21px;
+    letter-spacing: -.05em;
+    line-height: 1.05;
+  }
+
+  #sandip-portfolio-wireframe .pf-card-copy {
+    max-width: 400px;
+    margin: 0;
+    color: var(--portfolio-muted);
+    font-size: 11px;
+    line-height: 1.48;
+  }
+
+  #sandip-portfolio-wireframe .pf-arrow {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--portfolio-rule);
+    color: var(--portfolio-accent);
+    font-size: 16px;
+  }
+
+  #sandip-portfolio-wireframe .pf-outcomes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  #sandip-portfolio-wireframe .pf-outcome {
+    padding: 7px 9px;
+    background: var(--portfolio-surface-soft);
+    color: var(--portfolio-ink);
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  #sandip-portfolio-wireframe .pf-sprint-number {
+    align-self: end;
+    font-size: clamp(50px, 8vw, 84px);
+    line-height: .8;
+    font-weight: 500;
+    letter-spacing: -.09em;
+    color: var(--portfolio-accent);
+  }
+
+  #sandip-portfolio-wireframe .pf-sprint-copy {
+    align-self: end;
+    color: var(--portfolio-muted);
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  #sandip-portfolio-wireframe .pf-reels-layout {
+    display: grid;
+    grid-template-columns: 1.14fr .86fr;
+    gap: 14px;
+  }
+
+  #sandip-portfolio-wireframe .pf-reel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  #sandip-portfolio-wireframe .pf-reel {
+    position: relative;
+    min-height: 292px;
+    padding: 14px;
+    overflow: hidden;
+    border: 1px solid var(--portfolio-rule);
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--portfolio-surface);
+    box-shadow: var(--portfolio-shadow);
+  }
+
+  #sandip-portfolio-wireframe .pf-reel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--portfolio-ink) 0%, transparent) 16%, color-mix(in srgb, var(--portfolio-ink) 70%, transparent) 100%),
+      radial-gradient(circle at 72% 22%, color-mix(in srgb, var(--portfolio-accent) 66%, transparent), transparent 28%),
+      linear-gradient(142deg, color-mix(in srgb, var(--portfolio-accent-2) 42%, var(--portfolio-surface)), var(--portfolio-surface));
+  }
+
+  #sandip-portfolio-wireframe .pf-reel--two::before {
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--portfolio-ink) 0%, transparent) 16%, color-mix(in srgb, var(--portfolio-ink) 73%, transparent) 100%),
+      radial-gradient(circle at 35% 31%, color-mix(in srgb, var(--portfolio-accent-2) 60%, transparent), transparent 27%),
+      linear-gradient(150deg, color-mix(in srgb, var(--portfolio-accent) 48%, var(--portfolio-surface)), var(--portfolio-surface));
+  }
+
+  #sandip-portfolio-wireframe .pf-reel--three::before {
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--portfolio-ink) 0%, transparent) 16%, color-mix(in srgb, var(--portfolio-ink) 73%, transparent) 100%),
+      radial-gradient(circle at 68% 36%, color-mix(in srgb, var(--portfolio-accent) 56%, transparent), transparent 32%),
+      linear-gradient(142deg, color-mix(in srgb, var(--portfolio-accent-2) 28%, var(--portfolio-surface)), var(--portfolio-surface));
+  }
+
+  #sandip-portfolio-wireframe .pf-reel > * { position: relative; z-index: 1; }
+
+  #sandip-portfolio-wireframe .pf-reel-index {
+    color: light-dark(#fff, #fff);
+    font-size: 10px;
+    letter-spacing: .11em;
+  }
+
+  #sandip-portfolio-wireframe .pf-reel-play {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    margin: auto;
+    border: 1px solid color-mix(in srgb, light-dark(#fff, #fff) 45%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, light-dark(#fff, #fff) 10%, transparent);
+    color: light-dark(#fff, #fff);
+    font-size: 12px;
+  }
+
+  #sandip-portfolio-wireframe .pf-reel-title {
+    margin: 0;
+    color: light-dark(#fff, #fff);
+    font-size: 13px;
+    line-height: 1.12;
+    letter-spacing: -.03em;
+  }
+
+  #sandip-portfolio-wireframe .pf-reel-caption {
+    margin-top: 6px;
+    color: color-mix(in srgb, light-dark(#fff, #fff) 72%, transparent);
+    font-size: 9px;
+    line-height: 1.35;
+  }
+
+  #sandip-portfolio-wireframe .pf-photo-collage {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    grid-template-rows: 1fr 1fr;
+    min-height: 292px;
+    gap: 12px;
+  }
+
+  #sandip-portfolio-wireframe .pf-photo {
+    position: relative;
+    overflow: hidden;
+    padding: 14px;
+    border: 1px solid var(--portfolio-rule);
+    border-radius: 18px;
+    background: var(--portfolio-surface-soft);
+  }
+
+  #sandip-portfolio-wireframe .pf-photo::before {
+    content: "";
+    position: absolute;
+    width: 128px;
+    height: 128px;
+    right: -31px;
+    bottom: -34px;
+    border: 1px solid color-mix(in srgb, var(--portfolio-accent) 58%, transparent);
+    border-radius: 999px;
+    box-shadow:
+      0 0 0 18px color-mix(in srgb, var(--portfolio-accent) 10%, transparent),
+      0 0 0 42px color-mix(in srgb, var(--portfolio-accent-2) 8%, transparent);
+  }
+
+  #sandip-portfolio-wireframe .pf-photo--main {
+    grid-row: 1 / 3;
+    background:
+      radial-gradient(circle at 42% 36%, color-mix(in srgb, var(--portfolio-accent) 37%, transparent), transparent 26%),
+      linear-gradient(145deg, color-mix(in srgb, var(--portfolio-accent-2) 18%, var(--portfolio-surface)), var(--portfolio-surface-soft));
+  }
+
+  #sandip-portfolio-wireframe .pf-photo--main::after {
+    content: "PORTRAIT";
+    position: absolute;
+    right: 12px;
+    bottom: 13px;
+    color: color-mix(in srgb, var(--portfolio-ink) 36%, transparent);
+    font-size: 26px;
+    letter-spacing: -.07em;
+    transform: rotate(-90deg) translateX(78%);
+    transform-origin: right bottom;
+  }
+
+  #sandip-portfolio-wireframe .pf-photo--small {
+    background:
+      linear-gradient(135deg, color-mix(in srgb, var(--portfolio-accent) 18%, var(--portfolio-surface)), var(--portfolio-surface-soft));
+  }
+
+  #sandip-portfolio-wireframe .pf-photo--small::before {
+    width: 80px;
+    height: 80px;
+    right: -20px;
+    bottom: -20px;
+    box-shadow: 0 0 0 13px color-mix(in srgb, var(--portfolio-accent) 9%, transparent);
+  }
+
+  #sandip-portfolio-wireframe .pf-photo-label,
+  #sandip-portfolio-wireframe .pf-photo-note {
+    position: relative;
+    z-index: 1;
+    display: block;
+  }
+
+  #sandip-portfolio-wireframe .pf-photo-label {
+    color: var(--portfolio-ink);
+    font-size: 11px;
+    line-height: 1.15;
+  }
+
+  #sandip-portfolio-wireframe .pf-photo-note {
+    margin-top: 6px;
+    color: var(--portfolio-muted);
+    font-size: 9px;
+    line-height: 1.35;
+  }
+
+  #sandip-portfolio-wireframe .pf-process {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  #sandip-portfolio-wireframe .pf-steps {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    margin-top: 18px;
+  }
+
+  #sandip-portfolio-wireframe .pf-steps::before {
+    content: "";
+    position: absolute;
+    top: 27px;
+    left: 26px;
+    right: 26px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--portfolio-accent), color-mix(in srgb, var(--portfolio-accent-2) 68%, var(--portfolio-rule)), var(--portfolio-rule));
+    opacity: .54;
+  }
+
+  #sandip-portfolio-wireframe .pf-step {
+    position: relative;
+    min-height: 117px;
+    padding: 14px 13px;
+    border-right: 1px solid var(--portfolio-rule);
+  }
+
+  #sandip-portfolio-wireframe .pf-step:last-child { border-right: 0; }
+
+  #sandip-portfolio-wireframe .pf-step-num {
+    position: relative;
+    z-index: 1;
+    display: inline-grid;
+    place-items: center;
+    min-width: 27px;
+    min-height: 21px;
+    padding: 0 5px;
+    border: 1px solid color-mix(in srgb, var(--portfolio-accent) 44%, var(--portfolio-rule));
+    border-radius: 999px;
+    background: var(--portfolio-surface);
+    color: var(--portfolio-accent);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  #sandip-portfolio-wireframe .pf-step-title {
+    display: block;
+    margin: 23px 0 5px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  #sandip-portfolio-wireframe .pf-step-detail {
+    color: var(--portfolio-muted);
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  #sandip-portfolio-wireframe .pf-channel-desk {
+    overflow: hidden;
+    border-radius: 16px;
+  }
+
+  #sandip-portfolio-wireframe .pf-desk-head {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px;
+    border-bottom: 1px solid var(--portfolio-rule);
+  }
+
+  #sandip-portfolio-wireframe .pf-desk-title {
+    margin: 7px 0 0;
+    font-size: 25px;
+    letter-spacing: -.05em;
+  }
+
+  #sandip-portfolio-wireframe .pf-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--portfolio-muted);
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  #sandip-portfolio-wireframe .pf-live::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--portfolio-accent);
+  }
+
+  #sandip-portfolio-wireframe .pf-channel-row {
+    display: grid;
+    grid-template-columns: 1.2fr .92fr .72fr .7fr auto;
+    gap: 12px;
+    align-items: center;
+    min-height: 62px;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--portfolio-rule);
+    font-size: 11px;
+  }
+
+  #sandip-portfolio-wireframe .pf-channel-row:last-child { border-bottom: 0; }
+  #sandip-portfolio-wireframe .pf-channel-name { font-weight: 500; }
+  #sandip-portfolio-wireframe .pf-channel-meta { color: var(--portfolio-muted); font-size: 10px; }
+  #sandip-portfolio-wireframe .pf-api-value { font-weight: 500; text-align: right; }
+  #sandip-portfolio-wireframe .pf-api-label { color: var(--portfolio-muted); font-size: 9px; text-align: right; }
+  #sandip-portfolio-wireframe .pf-refresh { color: var(--portfolio-accent); font-size: 10px; font-weight: 500; text-align: right; }
+
+  #sandip-portfolio-wireframe .pf-contact {
+    display: grid;
+    grid-template-columns: 1.25fr .75fr;
+    gap: 24px;
+    margin-top: 64px;
+    padding: 28px;
+    background:
+      linear-gradient(120deg, var(--portfolio-accent-soft), transparent 58%),
+      var(--portfolio-surface);
+    border-radius: 18px;
+  }
+
+  #sandip-portfolio-wireframe .pf-contact h2 {
+    max-width: 515px;
+    margin: 8px 0 0;
+    font-size: 32px;
+    line-height: 1.03;
+    letter-spacing: -.06em;
+  }
+
+  #sandip-portfolio-wireframe .pf-contact-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-start;
+    gap: 13px;
+  }
+
+  #sandip-portfolio-wireframe .pf-contact-side span {
+    color: var(--portfolio-muted);
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  #sandip-portfolio-wireframe .pf-footer {
+    padding: 25px 0 0;
+    color: var(--portfolio-muted);
+    font-size: 10px;
+  }
+
+  #sandip-portfolio-wireframe .pf-wireframe-note {
+    color: var(--portfolio-muted);
+    font-size: 10px;
+    text-align: right;
+  }
+
+  @media (max-width: 720px) {
+    #sandip-portfolio-wireframe .pf-page { padding: 14px 16px 26px; }
+    #sandip-portfolio-wireframe .pf-links { display: none; }
+    #sandip-portfolio-wireframe .pf-hero,
+    #sandip-portfolio-wireframe .pf-work-grid,
+    #sandip-portfolio-wireframe .pf-reels-layout,
+    #sandip-portfolio-wireframe .pf-contact { grid-template-columns: 1fr; }
+    #sandip-portfolio-wireframe .pf-hero { padding-top: 44px; }
+    #sandip-portfolio-wireframe .pf-hero h1 { font-size: 43px; }
+    #sandip-portfolio-wireframe .pf-metrics { grid-template-columns: repeat(2, 1fr); }
+    #sandip-portfolio-wireframe .pf-metric:nth-child(2) { border-right: 0; }
+    #sandip-portfolio-wireframe .pf-metric:nth-child(n+3) { border-top: 1px solid var(--portfolio-rule); }
+    #sandip-portfolio-wireframe .pf-work-card--sprint { grid-column: auto; min-height: 214px; }
+    #sandip-portfolio-wireframe .pf-reel-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    #sandip-portfolio-wireframe .pf-reel { min-height: 230px; }
+    #sandip-portfolio-wireframe .pf-steps { grid-template-columns: 1fr; }
+    #sandip-portfolio-wireframe .pf-steps::before { display: none; }
+    #sandip-portfolio-wireframe .pf-step { min-height: 64px; border-right: 0; border-bottom: 1px solid var(--portfolio-rule); }
+    #sandip-portfolio-wireframe .pf-step:last-child { border-bottom: 0; }
+    #sandip-portfolio-wireframe .pf-step-title { margin: 8px 0 4px; }
+    #sandip-portfolio-wireframe .pf-channel-row { grid-template-columns: 1fr auto; padding: 15px 16px; gap: 6px; }
+    #sandip-portfolio-wireframe .pf-channel-meta { grid-column: 1; }
+    #sandip-portfolio-wireframe .pf-api-value,
+    #sandip-portfolio-wireframe .pf-api-label { display: none; }
+    #sandip-portfolio-wireframe .pf-refresh { grid-column: 2; grid-row: 1 / span 2; }
+    #sandip-portfolio-wireframe .pf-contact h2 { font-size: 29px; }
+  }
+</style>
+
+<div id="sandip-portfolio-wireframe" aria-label="Personal portfolio website wireframe for Sandip Ghosh">
+  <div class="pf-page">
+    <nav class="pf-nav" aria-label="Portfolio navigation">
+      <div class="pf-brand"><span class="pf-monogram">SG</span><span>Sandip Ghosh</span></div>
+      <div class="pf-links" aria-label="Page sections"><span>Work</span><span>Reels</span><span>System</span><span>Channel desk</span></div>
+      <button class="pf-nav-cta" type="button">Let’s work together</button>
+    </nav>
+
+    <div class="pf-tech-bar" aria-label="Portfolio system status">
+      <span><strong>SYSTEM ONLINE</strong></span>
+      <span>4-CHANNEL PORTFOLIO</span>
+      <span>2,500+ LAUNCHES</span>
+      <span>METRICS SYNC: DAILY</span>
+    </div>
+
+    <section class="pf-hero" aria-label="Portfolio introduction">
+      <div>
+        <div class="pf-eyebrow">YouTube growth × content systems</div>
+        <h1 id="pf-hero-title">I turn audience insight into <em>YouTube growth systems.</em></h1>
+        <p class="pf-hero-copy" id="pf-hero-copy">From research and packaging to high-velocity programming, I build content engines that people want to watch—and teams can actually run.</p>
+        <div class="pf-actions">
+          <button class="pf-button" type="button">Explore selected work</button>
+          <span class="pf-text-link">Download CV ↗</span>
+        </div>
+      </div>
+
+      <aside class="pf-hero-proof" aria-label="Featured portfolio impact">
+        <div>
+          <div class="pf-label">Featured impact</div>
+          <div class="pf-proof-title">Class 10 Endgame turnaround</div>
+          <div class="pf-line-chart" aria-label="Illustrative upward performance trend">
+            <svg class="pf-line" viewBox="0 0 300 94" preserveAspectRatio="none" role="img" aria-label="Upward performance curve">
+              <path d="M 0 79 C 28 78, 40 75, 60 74 S 95 73, 112 63 S 145 71, 160 54 S 197 44, 212 46 S 246 28, 300 8" fill="none" stroke="var(--portfolio-accent)" stroke-width="3"></path>
+              <circle cx="300" cy="8" r="4.5" fill="var(--portfolio-accent)"></circle>
+            </svg>
+          </div>
+        </div>
+        <div class="pf-proof-bottom">
+          <div><div class="pf-proof-value">+310%</div><div class="pf-proof-context">average monthly views</div></div>
+          <div class="pf-direction">View case study ↗</div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="pf-metrics" aria-label="Selected six-month portfolio outcomes">
+      <div class="pf-metric"><span class="pf-metric-value">13.07M</span><span class="pf-metric-label">views across a four-channel portfolio</span></div>
+      <div class="pf-metric"><span class="pf-metric-value">421.7K</span><span class="pf-metric-label">watch hours created in six months</span></div>
+      <div class="pf-metric"><span class="pf-metric-value">49.1K</span><span class="pf-metric-label">net subscribers gained</span></div>
+      <div class="pf-metric"><span class="pf-metric-value">2,500+</span><span class="pf-metric-label">live, long-form and Shorts launches</span></div>
+    </section>
+
+    <section class="pf-section" aria-labelledby="pf-work-heading">
+      <div class="pf-section-head">
+        <div><div class="pf-kicker">Selected work</div><h2 id="pf-work-heading">Evidence, not just claims.</h2></div>
+        <p class="pf-section-note">Every case study shows the problem, the strategic shift, the execution, and the outcome.</p>
+      </div>
+
+      <div class="pf-work-grid">
+        <article class="pf-work-card pf-work-card--endgame">
+          <div>
+            <div class="pf-card-top"><div class="pf-label">01 · Channel turnaround</div><span class="pf-arrow" aria-hidden="true">↗</span></div>
+            <h3 class="pf-card-title">Class 10 Endgame</h3>
+            <p class="pf-card-copy">Rebuilt the exam-cycle content calendar around student urgency, retention-first hooks and live-session repositioning.</p>
+          </div>
+          <div class="pf-outcomes"><span class="pf-outcome">+630% watch time</span><span class="pf-outcome">+73% AVD</span><span class="pf-outcome">8.7× live concurrency</span></div>
+        </article>
+
+        <article class="pf-work-card">
+          <div>
+            <div class="pf-card-top"><div class="pf-label">02 · Built from zero</div><span class="pf-arrow" aria-hidden="true">↗</span></div>
+            <h3 class="pf-card-title">Campus Chronicles</h3>
+            <p class="pf-card-copy">A full-stack personal channel case study: ideation, scripts, packaging, publishing and weekly iteration.</p>
+          </div>
+          <div class="pf-outcomes"><span class="pf-outcome">Personal channel</span><span class="pf-outcome">Creator-led growth</span></div>
+        </article>
+
+        <article class="pf-work-card pf-work-card--sprint">
+          <div>
+            <div class="pf-card-top"><div class="pf-label">03 · Growth sprint</div><span class="pf-arrow" aria-hidden="true">↗</span></div>
+            <h3 class="pf-card-title">The 30-day flagship sprint</h3>
+            <p class="pf-card-copy">A concentrated live-and-content campaign designed to create daily momentum, watch time and audience conversion.</p>
+          </div>
+          <div>
+            <div class="pf-sprint-number">5K → 25K</div>
+            <div class="pf-sprint-copy">subscribers in 30 days<br>111K watch hours generated</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="pf-section" aria-labelledby="pf-reels-heading">
+      <div class="pf-section-head">
+        <div><div class="pf-kicker">Content in motion</div><h2 id="pf-reels-heading">Popular reels &amp; the person behind the work.</h2></div>
+        <p class="pf-section-note">A more personal, visual pause between proof-heavy case studies—using your strongest Shorts and real behind-the-scenes images.</p>
+      </div>
+
+      <div class="pf-reels-layout">
+        <div class="pf-reel-grid" aria-label="Popular reels placeholders">
+          <article class="pf-reel pf-reel--one" aria-label="Popular reel placeholder one">
+            <span class="pf-reel-index">REEL 01</span>
+            <span class="pf-reel-play" aria-hidden="true">▶</span>
+            <div><h3 class="pf-reel-title">Your popular reel title</h3><div class="pf-reel-caption">Replace with cover frame · views · topic</div></div>
+          </article>
+          <article class="pf-reel pf-reel--two" aria-label="Popular reel placeholder two">
+            <span class="pf-reel-index">REEL 02</span>
+            <span class="pf-reel-play" aria-hidden="true">▶</span>
+            <div><h3 class="pf-reel-title">Your popular reel title</h3><div class="pf-reel-caption">Replace with cover frame · views · topic</div></div>
+          </article>
+          <article class="pf-reel pf-reel--three" aria-label="Popular reel placeholder three">
+            <span class="pf-reel-index">REEL 03</span>
+            <span class="pf-reel-play" aria-hidden="true">▶</span>
+            <div><h3 class="pf-reel-title">Your popular reel title</h3><div class="pf-reel-caption">Replace with cover frame · views · topic</div></div>
+          </article>
+        </div>
+
+        <aside class="pf-photo-collage" aria-label="Personal photo placeholders">
+          <div class="pf-photo pf-photo--main"><span class="pf-photo-label">Your portrait</span><span class="pf-photo-note">A confident, editorial image—on set, planning or speaking.</span></div>
+          <div class="pf-photo pf-photo--small"><span class="pf-photo-label">Behind the scenes</span><span class="pf-photo-note">Working with the team</span></div>
+          <div class="pf-photo pf-photo--small"><span class="pf-photo-label">In the field</span><span class="pf-photo-note">Shoot, live event or creator moment</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="pf-section" aria-labelledby="pf-system-heading">
+      <div class="pf-section-head">
+        <div><div class="pf-kicker">The operating system</div><h2 id="pf-system-heading">How the work compounds.</h2></div>
+        <p class="pf-section-note">The process section proves you can build a repeatable engine—not only chase individual viral videos.</p>
+      </div>
+
+      <div class="pf-process">
+        <div class="pf-steps">
+          <div class="pf-step"><span class="pf-step-num">01</span><span class="pf-step-title">Find demand</span><span class="pf-step-detail">Audience, competitor and search intelligence</span></div>
+          <div class="pf-step"><span class="pf-step-num">02</span><span class="pf-step-title">Build formats</span><span class="pf-step-detail">Hooks, packaging and repeatable series</span></div>
+          <div class="pf-step"><span class="pf-step-num">03</span><span class="pf-step-title">Program the calendar</span><span class="pf-step-detail">High-intent moments, lives and launches</span></div>
+          <div class="pf-step"><span class="pf-step-num">04</span><span class="pf-step-title">Run production</span><span class="pf-step-detail">Educators, creative teams and delivery systems</span></div>
+          <div class="pf-step"><span class="pf-step-num">05</span><span class="pf-step-title">Iterate from data</span><span class="pf-step-detail">CTR, AVD, retention and conversion signals</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pf-section" aria-labelledby="pf-desk-heading">
+      <div class="pf-channel-desk">
+        <div class="pf-desk-head">
+          <div><div class="pf-kicker">Living proof</div><h2 class="pf-desk-title" id="pf-desk-heading">Channel desk</h2></div>
+          <span class="pf-live">API-connected public metrics</span>
+        </div>
+        <div class="pf-channel-row"><div><div class="pf-channel-name">Campus Chronicles</div><div class="pf-channel-meta">Owned channel · full case study</div></div><div class="pf-api-value">Subscribers</div><div class="pf-api-label">Live API</div><div class="pf-api-value">Views</div><div class="pf-refresh">Open desk ↗</div></div>
+        <div class="pf-channel-row"><div><div class="pf-channel-name">Class 10 Endgame</div><div class="pf-channel-meta">Selected managed work · public data</div></div><div class="pf-api-value">Subscribers</div><div class="pf-api-label">Live API</div><div class="pf-api-value">Videos</div><div class="pf-refresh">Open desk ↗</div></div>
+        <div class="pf-channel-row"><div><div class="pf-channel-name">ICSE 9 & 10</div><div class="pf-channel-meta">Selected managed work · public data</div></div><div class="pf-api-value">Subscribers</div><div class="pf-api-label">Live API</div><div class="pf-api-value">Views</div><div class="pf-refresh">Open desk ↗</div></div>
+      </div>
+    </section>
+
+    <section class="pf-contact" aria-label="Contact section">
+      <div><div class="pf-kicker">Next opportunity</div><h2>Let’s build a channel people return to—not just one video that spikes.</h2></div>
+      <div class="pf-contact-side"><span>Available for YouTube growth, content strategy and creative-operations conversations.</span><button class="pf-button" type="button">Start a conversation ↗</button></div>
+    </section>
+
+    <footer class="pf-footer"><span>Sandip Ghosh · YouTube growth & content systems</span><span class="pf-wireframe-note">Portfolio landing page wireframe</span></footer>
+  </div>
+</div>
+
+<script>
+  const portfolioRoot = document.getElementById("sandip-portfolio-wireframe");
+  const portfolioState = {
+    accent: "#0968d9",
+    heroMode: "proof"
+  };
+
+  function renderPortfolioWireframe() {
+    portfolioRoot.style.setProperty("--portfolio-accent", portfolioState.accent);
+    const heroTitle = portfolioRoot.querySelector("#pf-hero-title");
+    const heroCopy = portfolioRoot.querySelector("#pf-hero-copy");
+    if (portfolioState.heroMode === "story") {
+      heroTitle.innerHTML = 'I build content engines that <em>people come back to.</em>';
+      heroCopy.textContent = "A YouTube growth portfolio built around strategy, creative systems, and the compounding work behind sustained channel performance.";
+    } else {
+      heroTitle.innerHTML = 'I turn audience insight into <em>YouTube growth systems.</em>';
+      heroCopy.textContent = "From research and packaging to high-velocity programming, I build content engines that people want to watch—and teams can actually run.";
+    }
+  }
+
+  renderPortfolioWireframe();
+
+  if (globalThis.Tweak) {
+    const portfolioTweak = new Tweak({ container: portfolioRoot, onChange: renderPortfolioWireframe });
+    portfolioTweak.addColorPicker(portfolioState, "accent", { label: "Accent color", reference: "--portfolio-accent" });
+    portfolioTweak.addSelect(portfolioState, "heroMode", {
+      label: "Hero emphasis",
+      options: [
+        { label: "Proof-led", value: "proof" },
+        { label: "Story-led", value: "story" }
+      ],
+      reference: "heroMode"
+    });
+  }
+</script>
