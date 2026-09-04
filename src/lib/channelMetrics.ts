@@ -4,7 +4,7 @@ import {
   type ChannelMetricsDataset,
 } from "../data/channelMetrics";
 
-const METRICS_URL = "/data/channel-metrics.json";
+const METRICS_URL = `${import.meta.env.BASE_URL}data/channel-metrics.json`;
 
 function isMetricsDataset(value: unknown): value is ChannelMetricsDataset {
   if (!value || typeof value !== "object") return false;

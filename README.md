@@ -13,6 +13,7 @@ The production frontend is static. Public YouTube data is fetched outside the br
 - Daily public YouTube Data API refresh with historical 7/30-day snapshot comparisons
 - TypeScript, lint, unit-test, and production-build commands
 - GitHub and DigitalOcean App Platform deployment configuration
+- GitHub Pages deployment with a permanent, payment-method-free project URL
 
 ## Prerequisites
 
@@ -159,6 +160,24 @@ git push -u origin main
 
 Authenticate with GitHub CLI (`gh auth login`), Git Credential Manager, or a scoped personal access token. Never put a token in the remote URL or a tracked file.
 
+## Deploy to GitHub Pages
+
+The workflow in [`.github/workflows/deploy-github-pages.yml`](.github/workflows/deploy-github-pages.yml) verifies and builds the application on every push to `main`, then publishes `dist/` to GitHub Pages. The build uses `/Personal-Portfolio-Website/` as its base path, while local and DigitalOcean builds continue to use `/`.
+
+One-time repository setting:
+
+1. Open **Settings → Pages** in GitHub.
+2. Under **Build and deployment**, select **GitHub Actions** as the source.
+3. Run **Actions → Deploy GitHub Pages → Run workflow**, or push to `main`.
+
+The production URL is:
+
+```text
+https://sandip258.github.io/Personal-Portfolio-Website/
+```
+
+GitHub Pages is available for public repositories on GitHub Free and does not require a hosting payment method.
+
 ## Deploy to DigitalOcean App Platform
 
 This repository includes [`.do/app.yaml`](.do/app.yaml) for a frontend-only Static Site. The YouTube API job stays in GitHub Actions; the DigitalOcean build does not need `YOUTUBE_API_KEY`.
@@ -204,6 +223,7 @@ src/styles/                   Theme and responsive styles
 scripts/                      Server-side public-metric refresh and channel config
 public/data/                  Browser-readable current and historical snapshots
 .github/workflows/            Daily refresh automation
+.github/workflows/deploy-github-pages.yml  GitHub Pages release workflow
 .do/app.yaml                  DigitalOcean static-site specification
 docs/architecture/            Numbered architecture decision records
 ```
